@@ -19,9 +19,9 @@ api.interceptors.response.use(
     async function (error) {
         console.log(error);
         if (error.response.status === (401 || 403)) {
-            if (window.location.pathname !== "/auth") {
+            if (window.location.pathname !== "/auth/step-1") {
                 localStorage.clear();
-                window.location.href = "/auth";
+                window.location.href = "/auth/step-1";
             }
         }
 
