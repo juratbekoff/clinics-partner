@@ -1,48 +1,50 @@
-import ServiceIcon from "../assets/icons/service";
-import BookingIcon from "../assets/icons/booking.tsx";
-import EmployeesIcon from "../assets/icons/employees.tsx";
-import CommentIcon from "../assets/icons/review.tsx";
 import {FaRegHospital} from "react-icons/fa6";
+import {HiOutlineChatBubbleOvalLeftEllipsis} from "react-icons/hi2";
+import {LuUsers2} from "react-icons/lu";
+import {MdOutlineMedicalServices} from "react-icons/md";
+
 
 export const sidebarItems = [
     {
-        id: 1,
-        label: "Services",
+        id: 4,
+        label: "Clinics",
         href: "/",
-        icon: <ServiceIcon/>
+        subscription: ["FREE", "START", "FULL"],
+        icon: <FaRegHospital/>,
     },
     {
-        id: 2,
-        label: "Bookings",
-        href: "/bookings",
-        icon: <BookingIcon/>,
+        id: 1,
+        label: "Services",
+        href: "/services",
+        subscription: ["START", "FULL"],
+        icon: <MdOutlineMedicalServices className={"-ml-[1px]"}/>
     },
+    // {
+    //     id: 2,
+    //     label: "Bookings",
+    //     href: "/bookings",
+    //     icon: <BookingIcon/>,
+    // },
     {
         id: 3,
         label: "Employees",
         href: "/employees",
-        icon: <EmployeesIcon/>,
+        subscription: ["START", "FULL"],
+        icon: <LuUsers2/>,
     },
     {
         id: 5,
         label: "Reviews",
         href: "/reviews",
-        icon: <CommentIcon/>,
+        subscription: ["FREE", "START", "FULL"],
+        icon: <HiOutlineChatBubbleOvalLeftEllipsis/>,
     },
-    {
-        id: 4,
-        label: "Clinics",
-        href: "/clinics",
-        icon: <FaRegHospital className={"text-xl ml-[2px]"}/>,
-    },
-    // {
-    //     id: 6,
-    //     label: "Obuna",
-    //     href: "/subscriptions",
-    //     icon: <SubscriptionIcon/>,
-    // }
 ];
 
+export const settingsTabs = [
+    {path: "profile", name: "Profile"},
+    {path: "subscriptions", name: "Subscriptions"},
+];
 export const regionsData = [
     {id: 1, name: "Qoraqalpog‘iston Respublikasi"},
     {id: 2, name: "Andijon viloyati"},
@@ -59,7 +61,6 @@ export const regionsData = [
     {id: 13, name: "Xorazm viloyati"},
     {id: 14, name: "Toshkent shahri"},
 ];
-
 export const districtsData = [
     {id: 15, region_id: 1, name: "Amudaryo tumani"},
     {id: 16, region_id: 1, name: "Beruniy tumani"},
@@ -258,4 +259,26 @@ export const districtsData = [
     {id: 209, region_id: 14, name: "Yashnobod tumani"}
 ];
 
-
+export const subscriptionPlans = [
+    {
+        name: "FREE",
+        includes: [
+            "Klinikangiz haqida ma'lumotlarni kiriting",
+        ]
+    },
+    {
+        name: "START",
+        includes: [
+            "Klinikangiz haqida ma'lumotlarni kiriting",
+            "Klinikangiz xizmatlarini kiriting",
+        ]
+    },
+    {
+        name: "FULL",
+        includes: [
+            "Klinikangiz haqida ma'lumotlarni kiriting",
+            "Klinikangiz xizmatlarini kiriting",
+            "Klinikangizda onlayn navbatlarni joriy qiling"
+        ]
+    }
+]

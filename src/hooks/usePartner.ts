@@ -1,4 +1,4 @@
-import {useMutation} from "react-query";
+import {useMutation, useQuery} from "react-query";
 import {queryKeys} from "./queryKeys.ts";
 import {customToast} from "../lib/utils.tsx";
 
@@ -28,4 +28,13 @@ export const usePartnerLogin = () => {
         },
     });
 };
+
+export const useGetPartnerInfo = () => {
+    return useQuery({
+        queryKey: [queryKeys.GET_PARTNER_INFO],
+        queryFn: async () => {
+            return await api.get("/partner/info")
+        }
+    })
+}
 

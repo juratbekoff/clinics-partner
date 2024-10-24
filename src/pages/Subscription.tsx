@@ -1,15 +1,15 @@
-import {useLocation} from "react-router-dom";
 import SubscriptionCard from "../components/cards/subscription.tsx";
+import {subscriptionPlans} from "../constants";
 
 const Subscription = () => {
-    const {pathname} = useLocation()
-
     return (
         <>
-            <div className={"grid grid-cols-3 gap-5"}>
-                <SubscriptionCard name={"Oddiy"} isCurrent/>
-                <SubscriptionCard name={"Pro"} isCurrent={false}/>
-                <SubscriptionCard name={"Premium"} isCurrent={false}/>
+            <div className={"columns-3 gap-5"}>
+                {
+                    subscriptionPlans.map((subscription, index) => (
+                        <SubscriptionCard key={index} subscription={subscription}/>
+                    ))
+                }
             </div>
         </>
     );

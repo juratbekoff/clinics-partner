@@ -1,9 +1,10 @@
 import {useLocation} from "react-router-dom";
+import {settingsTabs} from "../../constants";
 
 const SettingsIcon = () => {
     const {pathname} = useLocation()
-    const isClicked = pathname === "/settings"
-
+    const isClicked = settingsTabs.some(tab => `/settings/${tab.path}` === pathname);
+    
     return isClicked ?
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fillRule="evenodd" clipRule="evenodd"

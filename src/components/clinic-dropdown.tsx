@@ -2,12 +2,13 @@ import React from 'react';
 import Select from "react-select";
 import {useGetClinics} from "../hooks/useClinics.ts";
 import {ClinicType} from "../types/clinic";
+import {LuLoader2} from "react-icons/lu";
 
 const ClinicDropdown = () => {
     const getPartnerClinics = useGetClinics()
 
     if (getPartnerClinics.isLoading) {
-        return <h1>loading...</h1>
+        return <LuLoader2 className={"animate-spin text-xl"}/>
     }
 
     const clinicsData: ClinicType[] = getPartnerClinics.data?.data?.clinics

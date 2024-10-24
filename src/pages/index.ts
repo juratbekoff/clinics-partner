@@ -8,3 +8,4 @@ export {default as Transactions} from "./Transactions";
 export {default as Clinics} from "./clinics/Auth.tsx";
 export {default as SubServices} from "./SubServices";
 export {default as Folders} from "./Folders";
+export {default as Index} from "./Index.tsx";

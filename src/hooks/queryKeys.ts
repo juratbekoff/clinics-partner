@@ -2,6 +2,7 @@ export enum queryKeys {
 
     // partner
     LOGIN,
+    GET_PARTNER_INFO,
 
     // services
     GET_SERVICES,

@@ -1,37 +1,37 @@
-import {Button} from "../ui/button.tsx";
-import {TiPin} from "react-icons/ti";
+import {FaCheck} from "react-icons/fa";
+import {BsFillPinAngleFill} from "react-icons/bs";
+import {useGetPartnerInfoStore} from "../../hooks/useZustand.ts";
 
-const SubscriptionCard = ({name, isCurrent}: { name: string, isCurrent: boolean }) => {
+type SubscriptionProps = {
+    name: string,
+    includes: string[]
+}
+
+const SubscriptionCard = ({subscription}: { subscription: SubscriptionProps }) => {
+    const partner = useGetPartnerInfoStore()
+
     return (
         <div
-            className={`p-4 flex flex-col gap-3 text-sm border border-black/10 shadow rounded-lg`}
+            className={`break-inside-avoid p-4 flex flex-col gap-3 text-sm border border-black/10 shadow rounded-lg bg-white`}
         >
-            <div className={"flex justify-between items-center"}>
-                <h1 className={"font-semibold text-base"}>{name || "--"}</h1>
-                {isCurrent && <TiPin className={"text-red-500 text-2xl"}/>}
+            <div className={"flex justify-between"}>
+                <h1 className={"font-semibold text-base"}>{subscription.name || "--"}</h1>
+
+                {subscription.name === partner.subscription && (
+                    <BsFillPinAngleFill className={"text-red-600 text-xl"}/>
+                )}
+
             </div>
 
-            <div className={"flex flex-col gap-1"}>
-                <div className={"flex gap-1"}>
-                    <span className={"font-medium text-gray-600"}>Narxi:</span>
-                    <span className={"font-medium text-grey_four"}>450 000 so'm/oy</span>
-                </div>
-                
-                {
-                    isCurrent ? <div className={"flex gap-1"}>
-                        <span className={"font-medium text-gray-600"}>Keyingi to'lov:</span>
-                        <span className={"font-medium text-grey_four"}>23.08.2024, 10:00 gacha</span>
-                    </div> : <div className={"h-5"}></div>
-                }
-            </div>
+            <ul className={"flex flex-col gap-1"}>
+                {subscription.includes.map((item, index) => (
+                    <div className={"flex gap-2 items-center"}>
+                        <FaCheck className={"text-primary"}/>
+                        <li key={index}>{item}</li>
+                    </div>
+                ))}
+            </ul>
 
-            <div className={"flex gap-2 mt-2"}>
-                <Button variant={"outline"}>Ba'tafsil</Button>
-
-                {
-                    isCurrent && <Button>To'lov qilish</Button>
-                }
-            </div>
         </div>
     );
 };

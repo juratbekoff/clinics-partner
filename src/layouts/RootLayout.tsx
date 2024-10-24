@@ -1,5 +1,7 @@
 import {Outlet} from "react-router-dom";
 import Sidebar from "../components/sidebar.tsx";
+import React from "react";
+
 
 const RootLayout = () => {
     return (

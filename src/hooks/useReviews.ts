@@ -4,7 +4,7 @@ import {api} from "../api";
 import {queryClient} from "../main.tsx";
 import {customToast} from "../lib/utils.tsx";
 
-export const useGetReviews = (keyword: string = "") => {
+export const useGetReviews = (keyword: string = "", rating: number) => {
     const clinicId = +localStorage.getItem("currentClinic")!
     return useQuery({
         queryKey: [queryKeys.GET_REVIEWS],
@@ -12,7 +12,8 @@ export const useGetReviews = (keyword: string = "") => {
             return await api.get(`/review`, {
                 params: {
                     clinicId,
-                    keyword
+                    keyword,
+                    rating
                 }
             })
         }
@@ -27,7 +28,7 @@ export const useReplyReview = () => {
         },
         onSuccess() {
             queryClient.invalidateQueries({
-                queryKey: [queryKeys.GET_EMPLOYEES],
+                queryKey: [queryKeys.GET_REVIEWS],
             })
             customToast("SUCCESS", "Successfully replied!")
         },

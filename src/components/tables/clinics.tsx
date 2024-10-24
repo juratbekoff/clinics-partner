@@ -2,22 +2,20 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "../
 import {ClinicType} from "../../types/clinic";
 import {dateFormatter, formatPhoneNumber} from "../../lib/utils.tsx";
 import {Link} from "react-router-dom";
-import {useDeleteClinic} from "../../hooks/useClinics.ts";
-import StateShower from "../cards/state-shower.tsx";
 
 const ClinicsTable = ({data}: { data: ClinicType[] }) => {
-    const deleteClinicMutation = useDeleteClinic()
-
-    const onDeleteClinic = (id: number) => {
-        const isOk = confirm("Are you sure to delete this clinic?")
-        if (isOk) {
-            deleteClinicMutation.mutate(id)
-        }
-    }
-
-    if (deleteClinicMutation.isLoading) {
-        return <StateShower id={"loading"} name={"Deleting...  Please wait..."}/>
-    }
+    // const deleteClinicMutation = useDeleteClinic()
+    //
+    // const onDeleteClinic = (id: number) => {
+    //     const isOk = confirm("Are you sure to delete this clinic?")
+    //     if (isOk) {
+    //         deleteClinicMutation.mutate(id)
+    //     }
+    // }
+    //
+    // if (deleteClinicMutation.isLoading) {
+    //     return <StateShower id={"loading"} name={"Deleting...  Please wait..."}/>
+    // }
 
     return (
         <Table>
@@ -47,7 +45,7 @@ const ClinicsTable = ({data}: { data: ClinicType[] }) => {
                             <TableCell>{dateFormatter(clinic.createdAt)}</TableCell>
                             <TableCell>{dateFormatter(clinic.updatedAt)}</TableCell>
                             <TableCell>
-                                <div className={"flex gap-2 relative right-0"}>
+                                <div className={"flex  relative left-3"}>
                                     <Link to={`/clinics/edit/${clinic.id}`}>
                                         <img
                                             src="/edit.svg" alt={"#"}
@@ -55,12 +53,12 @@ const ClinicsTable = ({data}: { data: ClinicType[] }) => {
                                         />
                                     </Link>
 
-                                    <img
-                                        src="/delete.svg"
-                                        alt={"#"}
-                                        className={"select-none cursor-pointer size-[26px]"}
-                                        onClick={() => onDeleteClinic(clinic.id)}
-                                    />
+                                    {/*<img*/}
+                                    {/*    src="/delete.svg"*/}
+                                    {/*    alt={"#"}*/}
+                                    {/*    className={"select-none cursor-pointer size-[26px]"}*/}
+                                    {/*    onClick={() => onDeleteClinic(clinic.id)}*/}
+                                    {/*/>*/}
                                 </div>
                             </TableCell>
                         </TableRow>

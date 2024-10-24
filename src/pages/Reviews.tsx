@@ -9,13 +9,14 @@ import {useEffect, useState} from "react";
 
 const Reviews = () => {
     const [keyword, setKeyword] = useState("")
+    const [rating, setRating] = useState<number>()
 
-    const getReviewsQuery = useGetReviews(keyword);
+    const getReviewsQuery = useGetReviews(keyword, rating!);
     const reviewsData: GetReviewsType = getReviewsQuery?.data?.data
 
     useEffect(() => {
         getReviewsQuery.refetch()
-    }, [keyword]);
+    }, [keyword, rating]);
 
     return (
         <>
@@ -31,18 +32,19 @@ const Reviews = () => {
                 <Select
                     placeholder={"Tanlang"}
                     options={[
-                        {value: 0, label: "Barchasi"},
+                        {value: undefined, label: "Barchasi"},
                         {value: 1, label: "1 yulduz"},
                         {value: 2, label: "2 yulduz"},
                         {value: 3, label: "3 yulduz"},
                         {value: 4, label: "4 yulduz"},
                         {value: 5, label: "5 yulduz"},
                     ]}
+                    onChange={(item) => setRating(item?.value!)}
                 />
             </div>
 
             <div className={"flex gap-10 mb-10"}>
-                <div className={"grid grid-cols-1 gap-4 w-[70%]"}>
+                <div className={"grid grid-cols-2 gap-4 w-[70%]"}>
                     {
                         reviewsData?.reviews?.map((review) => (
                             <ReviewCard key={review.id} review={review}/>

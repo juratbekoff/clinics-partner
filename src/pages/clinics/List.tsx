@@ -4,7 +4,6 @@ import {Input} from "../../components/ui/input.tsx";
 import {useCreateClinicModal} from "../../hooks/useZustand.ts";
 import {DialogModal} from "../../components/ui/dialog.tsx";
 import {ClinicAuthStepForm} from "../../components/forms/clinics/clinic-auth-step.tsx";
-import {Button} from "../../components/ui/button.tsx";
 import {useGetClinics} from "../../hooks/useClinics.ts";
 import {ClinicType} from "../../types/clinic";
 import ClinicsTable from "../../components/tables/clinics.tsx";
@@ -44,7 +43,7 @@ const ClinicsList = () => {
                     <Input placeholder={"Search"} onChange={(e) => setKeyword(e.target.value)}/>
                 </div>
 
-                <Button onClick={() => navigate("/clinics/create")}>Create clinic +</Button>
+                {/*<Button onClick={() => navigate("/clinics/create")}>Create clinic +</Button>*/}
             </div>
 
             {
