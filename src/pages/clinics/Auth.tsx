@@ -57,12 +57,12 @@ const CLinicAuth = () => {
                                 ))
                             }
 
-                            <div
-                                className={"flex justify-center items-center p-1 border rounded-md cursor-pointer"}
-                                onClick={createClinicModal.onOpen}
-                            >
-                                <h1>+ Add clinic</h1>
-                            </div>
+                            {/*<div*/}
+                            {/*    className={"flex justify-center items-center p-1 border rounded-md cursor-pointer"}*/}
+                            {/*    onClick={createClinicModal.onOpen}*/}
+                            {/*>*/}
+                            {/*    <h1>+ Add clinic</h1>*/}
+                            {/*</div>*/}
                         </div>
                 }
             </div>
