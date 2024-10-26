@@ -55,5 +55,11 @@ export enum queryKeys {
     DELETE_BOOKING,
 
     // users
-    GET_USERS
+    GET_USERS,
+
+    // discounts
+    GET_DISCOUNTS,
+    CREATE_DISCOUNT,
+    UPDATE_DISCOUNT,
+    DELETE_DISCOUNT,
 }

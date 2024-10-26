@@ -2,6 +2,7 @@ import {FaRegHospital} from "react-icons/fa6";
 import {HiOutlineChatBubbleOvalLeftEllipsis} from "react-icons/hi2";
 import {LuUsers2} from "react-icons/lu";
 import {MdOutlineMedicalServices} from "react-icons/md";
+import {RiDiscountPercentLine} from "react-icons/ri";
 
 
 export const sidebarItems = [
@@ -39,10 +40,17 @@ export const sidebarItems = [
         subscription: ["FREE", "START", "FULL"],
         icon: <HiOutlineChatBubbleOvalLeftEllipsis/>,
     },
+    {
+        id: 6,
+        label: "Discounts",
+        href: "/discounts",
+        subscription: ["START", "FULL"],
+        icon: <RiDiscountPercentLine/>
+    }
 ];
 
 export const settingsTabs = [
-    {path: "profile", name: "Profile"},
+    // {path: "profile", name: "Profile"},
     {path: "subscriptions", name: "Subscriptions"},
 ];
 export const regionsData = [

@@ -67,6 +67,14 @@ export const FolderSchema = z.object({
     }),
 })
 
+export const DiscountSchema = z.object({
+    discount: z.coerce.number({
+        message: "Maydon bo'sh bo'lmasligi kerak!",
+        required_error: "Maydon bo'sh bo'lmasligi kerak!",
+        invalid_type_error: "Maydon bo'sh bo'lmasligi kerak!"
+    }),
+})
+
 
 export const WorkingHoursSchema = z.object({
     day: z.any().optional(),

@@ -1,7 +1,7 @@
 import {Route, Routes} from "react-router-dom";
 import {AuthChecker} from "@/middlewares/AuthChecker.tsx";
 import RootLayout from "@/layouts/RootLayout.tsx";
-import {Bookings, Employees, Folders, Reviews, Services, Subscription, SubServices} from "./pages";
+import {Bookings, Discounts, Employees, Folders, Reviews, Services, Subscription, SubServices} from "./pages";
 import AuthLayout from "@/layouts/AuthLayout.tsx";
 import SettingsLayout from "./layouts/SettingsLayout.tsx";
 import AuthForm from "./components/forms/auth.tsx";
@@ -61,6 +61,7 @@ function App() {
                 <Route path={"clinics/edit/:clinicId"} element={<EditClinic/>}/>
 
                 <Route path={"reviews"} element={<Reviews/>}/>
+                <Route path={"discounts"} element={<Discounts/>}/>
                 <Route path={"sub-services/:clinicServiceId"} element={<SubServices/>}/>
 
                 <Route path={"settings"} element={<SettingsLayout/>}>

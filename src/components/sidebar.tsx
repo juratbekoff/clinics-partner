@@ -65,7 +65,7 @@ const Sidebar = () => {
 
             <div className="flex flex-col gap-3 pb-10">
                 <Link
-                    to="/settings/profile"
+                    to="/settings/subscriptions"
                     className={`flex items-center gap-1 text-base ${
                         settingsActive ? "rounded-md font-semibold" : ""
                     } ${settingsActive ? "text-primary" : "text-grey_four"}`}
